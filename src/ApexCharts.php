@@ -56,7 +56,15 @@ class ApexCharts {
 
 
     public static function chart( array $data = [] ): void {
-
+        $id = self::random_id();
+        $encoded_data = json_encode( $data );
+        echo "<div id='{$id}' data-chart-params='{$encoded_data}'></div>";
+        echo "<script>const chart = document.getElementById('{$id}'); " . file_get_contents( __DIR__ . '/js/lib.js' ) . "</script>";
     }
 
+
+
+    private static function random_id(): string {
+        return substr( md5( rand() ), 0, 10 );
+    }
 }
