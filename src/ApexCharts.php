@@ -55,7 +55,17 @@ class ApexCharts {
     }
 
 
-    public static function chart( array $data = [] ): void {
+    /**
+     * Render out an Apex Chart.
+     * 
+     * @param   array   $data   Fill in the data parsed to the Javascript class `ApexChart` as an option.
+     * 
+     * @static
+     * @access  public
+     * @since   0.1.0
+     */
+
+    public static function draw( array $data = [] ): void {
         $id = self::random_id();
         $encoded_data = json_encode( $data );
         echo "<div id='{$id}' data-chart-params='{$encoded_data}'></div>";
@@ -63,6 +73,15 @@ class ApexCharts {
     }
 
 
+    /**
+     * Generate random IDs as needed.
+     * 
+     * @return  string
+     * 
+     * @static
+     * @access  private
+     * @since   0.1.0
+     */
 
     private static function random_id(): string {
         return substr( md5( rand() ), 0, 10 );

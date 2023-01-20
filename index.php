@@ -11,7 +11,7 @@ function get_ints(): array {
 }
 
 ApexCharts::link_cdn();
-ApexCharts::chart([
+ApexCharts::draw([
     'series' => [[
         'name' => 'series1',
         'data' => [31, 40, 28, 51, 42, 109, 100]
